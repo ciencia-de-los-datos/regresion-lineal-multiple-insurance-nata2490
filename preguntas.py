@@ -76,7 +76,7 @@ def pregunta_03():
     # Importe GridSearchCV
     # Importe Pipeline
     # Importe OneHotEncoder
-    from sklearn.compose import make_column_selector, make_column_transformer
+    from sklearn.compose import make_column_selector, ColumnTransformer
     from sklearn.feature_selection import SelectKBest, f_regression
     from sklearn.linear_model import LinearRegression
     from sklearn.model_selection import GridSearchCV
@@ -90,7 +90,7 @@ def pregunta_03():
             # las variables.
             (
                 "column_transfomer",
-                make_column_transformer(
+                ColumnTransformer(
                     (
                        'OneHot',
                         OneHotEncoder(categories='auto'),
