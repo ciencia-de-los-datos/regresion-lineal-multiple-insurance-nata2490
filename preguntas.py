@@ -119,7 +119,7 @@ def pregunta_03():
     # considerar valores desde 1 hasta 11 regresores para el modelo
     
     param_grid = {
-        'selectKBest__k': np.linspace(1, 11),
+        'selectKBest__k': np.arange(1, 11),
     }
     #estimator.get_params().keys()
 
