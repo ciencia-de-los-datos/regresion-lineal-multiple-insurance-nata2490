@@ -117,11 +117,9 @@ def pregunta_03():
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
+    
     param_grid = {
-        ____: ____(____, ____),
-    }
-    param_grid = {
-        'LR__n_stimators': np.linspace(1, 11),#regressor
+        'selectKBest__k': np.linspace(1, 11),
     }
     #estimator.get_params().keys()
 
