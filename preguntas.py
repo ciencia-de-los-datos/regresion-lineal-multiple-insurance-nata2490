@@ -95,7 +95,7 @@ def pregunta_03():
                        'OneHot',
                         OneHotEncoder(categories='auto'),
                     ),
-                    remainder='passthrough',#'drop'
+                    remainder='drop', #'passthrough'
                 ),
             ),
             # Paso 2: Construya un selector de características que seleccione las K
