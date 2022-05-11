@@ -93,7 +93,7 @@ def pregunta_03():
                 ColumnTransformer(
                     (
                        'OneHot',
-                        OneHotEncoder(categories='auto'),
+                        OneHotEncoder(categories='auto', drop='first'),
                     ),
                     remainder='passthrough', #'drop', 
                 ),
