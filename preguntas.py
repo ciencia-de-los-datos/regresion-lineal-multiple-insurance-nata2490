@@ -76,7 +76,7 @@ def pregunta_03():
     # Importe GridSearchCV
     # Importe Pipeline
     # Importe OneHotEncoder
-    from sklearn.compose import make_column_selector, ColumnTransformer
+    from sklearn.compose import make_column_transformer, make_column_selector, ColumnTransformer
     from sklearn.feature_selection import SelectKBest, f_regression
     from sklearn.linear_model import LinearRegression
     from sklearn.model_selection import GridSearchCV
@@ -90,10 +90,10 @@ def pregunta_03():
             # las variables.
             (
                 "column_transfomer",
-                ColumnTransformer(
+                make_column_transformer(
                     (
-                       'OneHot',
-                        OneHotEncoder(categories='auto', drop='first'),
+                       OneHotEncoder(), #categories='auto', drop='if_binary'),
+                        make_column_selector(dtype_include=object),
                     ),
                     remainder='passthrough', #'drop', 
                 ),
@@ -136,7 +136,7 @@ def pregunta_03():
         refit=True, #usa todo el conjunto de entrenamiento para reajustar el modelo.
         return_train_score=True,  #If False, the cv_results_ attribute will not include training scores
     )
-
+    #print(OneHot.categories_)
     # Búsque la mejor combinación de regresores
     gridSearchCV.fit(X_train, y_train)
 
